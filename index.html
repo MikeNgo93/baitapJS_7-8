@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 10px;
+        z-index: 1000;
+      "
+    >
+      <input type="text" class="" id="new-num" placeholder="1,2,3,vv..." />
+      <button
+        id="btn-addNum"
+        class=""
+        style="background-color: crimson; color: beige"
+        onclick="addNum()"
+      >
+        Thêm Số
+      </button>
+      <!-- Chuỗi hiện tại -->
+      <br class="" />
+      <div class="" style="display: flex">
+        <h4 class="" style="background: green; display: inline">
+          Chuỗi hiện tại:
+        </h4>
+        <h4
+          id="current-arr"
+          class=""
+          style="display: inline; font-weight: normal"
+        ></h4>
+      </div>
+    </div>
+
+    <!-- Tạo div bọc các câu trả lời, cho margin top lên 100-->
+    <div style="margin-top: 100px; padding: 10px">
+      <!-- Câu 1 -->
+      <div class="" style="display: flex">
+        <h4 class="" style="background: dodgerblue; display: inline">
+          Tổng của các số dương:
+        </h4>
+        <h4
+          id="result-1"
+          class=""
+          style="display: inline; font-weight: normal; margin: 0px 20px"
+        ></h4>
+      </div>
+      <!-- Câu 2 -->
+      <div class="" style="display: flex">
+        <h4 class="" style="background: dodgerblue; display: inline">
+          Số các số dương:
+        </h4>
+        <h4
+          id="result-2"
+          class=""
+          style="display: inline; font-weight: normal; margin: 0px 20px"
+        ></h4>
+      </div>
+      <!-- Câu 3 -->
+      <div class="" style="display: flex">
+        <h4 class="" style="background: dodgerblue; display: inline">
+          Số nhỏ nhất:
+        </h4>
+        <h4
+          id="result-3"
+          class=""
+          style="display: inline; font-weight: normal; margin: 0px 20px"
+        ></h4>
+      </div>
+      <!-- Câu 4 -->
+      <div class="" style="display: flex">
+        <h4 class="" style="background: dodgerblue; display: inline">
+          Số dương nhỏ nhất:
+        </h4>
+        <h4
+          id="result-4"
+          class=""
+          style="display: inline; font-weight: normal; margin: 0px 20px"
+        ></h4>
+      </div>
+      <!-- Câu 5 -->
+      <div class="" style="display: flex">
+        <h4 class="" style="background: dodgerblue; display: inline">
+          Số chẵn cuối cùng:
+        </h4>
+        <h4
+          id="result-5"
+          class=""
+          style="display: inline; font-weight: normal; margin: 0px 20px"
+        ></h4>
+      </div>
+      <!-- Câu 6 -->
+      <div class="" style="display: flex">
+        <h4 class="" style="margin-right: 20px; font-weight: normal">
+          Nhập 2 vị trí cần đổi chỗ, cách nhau bởi dấu phẩy (','), bắt đầu đếm
+          từ 0:
+        </h4>
+        <input type="text" class="" id="swap-list" placeholder="vd: 0,3" />
+        <button
+          id="btn-swap_index"
+          class=""
+          style="background-color: crimson; color: beige"
+        >
+          Đổi chỗ phần tử ở 2 vị trí này
+        </button>
+      </div>
+      <div class="" style="display: flex">
+        <h4 class="" style="background: dodgerblue; display: inline">
+          Mảng sau khi đổi chỗ phần tử:
+        </h4>
+        <h4
+          id="result-6"
+          class=""
+          style="display: inline; font-weight: normal; margin: 0px 20px"
+        ></h4>
+        <button
+          id="btn-swap_array"
+          class=""
+          style="background-color: green; color: beige; display: none"
+          onclick="swap_array()"
+        >
+          Bấm vào để lưu mảng này
+        </button>
+      </div>
+      <!-- Câu 7 -->
+      <div class="" style="display: flex">
+        <h4 class="" style="background: dodgerblue; display: inline">
+          Sắp xếp mảng tăng dần :
+        </h4>
+        <h4
+          id="result-7"
+          class=""
+          style="display: inline; font-weight: normal; margin: 0px 20px"
+        ></h4>
+      </div>
+      <!-- Câu 8 -->
+      <div class="" style="display: flex">
+        <h4 class="" style="background: dodgerblue; display: inline">
+          Số nguyên tố đầu tiên:
+        </h4>
+        <h4
+          id="result-8"
+          class=""
+          style="display: inline; font-weight: normal; margin: 0px 20px"
+        ></h4>
+      </div>
+      <!-- Câu 9 -->
+      <div class="" style="display: flex">
+        <h4 class="" style="margin-right: 20px; font-weight: normal">
+          Nhập thêm một mảng số thực, cách nhau bởi dấu phẩy
+        </h4>
+        <input
+          type="text"
+          class=""
+          id="new-array"
+          placeholder="vd: -1.5,2,11,-3.3,vv..."
+        />
+        <button
+          id="btn-input-new-array"
+          class=""
+          style="background-color: green; color: beige"
+          onclick="new_array_output()"
+        >
+          Tìm số các số nguyên
+        </button>
+      </div>
+      <div class="" style="display: flex">
+        <h4 class="" style="background: dodgerblue; display: inline">
+          Số các số nguyên trong mảng mới:
+        </h4>
+        <h4
+          id="result-9"
+          class=""
+          style="display: inline; font-weight: normal; margin: 0px 20px"
+        ></h4>
+      </div>
+      <!-- Câu 10 -->
+      <h4
+        class=""
+        style="background: dodgerblue; display: inline"
+        id="result-10"
+      ></h4>
+    </div>
+    <script class="" src="index.js"></script>
+  </body>
+</html>
